@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="dc-sample-template.ZPM">
+  <Document name="iris-flow.ZPM">
     <Module>
-      <Name>dc-sample-template</Name>
-      <Version>1.1.4</Version>
-      <Description>A basic module template for InterSystems ObjectScript with Unittests</Description>
+      <Name>iris-flow</Name>
+      <Version>1.0.0</Version>
+      <Description>A tool which lets you create IRIS Interoperability productions just by connecting building blocks</Description>
       <Packaging>module</Packaging>
-      <SourcesRoot>src/iris</SourcesRoot>
-      <Resource Name="dc.sample.PKG"/>
-      <UnitTest Name="/tests" Package="dc.sample.unittests" Phase="test"/>
+      <SourcesRoot>src</SourcesRoot>
+      <Dependencies>
+        <ModuleReference>
+          <Name>sslclient</Name>
+          <Version>1.*</Version>
+        </ModuleReference>
+      </Dependencies>
+      <Dependencies>
+        <ModuleReference>
+          <Name>appmsw-telestat</Name>
+          <Version>1.*</Version>
+        </ModuleReference>
+      </Dependencies>
+      <Dependencies>
+        <ModuleReference>
+          <Name>iris-climatiq-adapter</Name>
+          <Version>1.*</Version>
+        </ModuleReference>
+      </Dependencies>
+      <Resource Name="dc.irisflow.PKG"/>
+      <CSPApplication CookiePath="/csp/iris-flow/api/" DefaultTimeout="900" DispatchClass="dc.irisflow.rest.Dispatch" MatchRoles=":%All" PasswordAuthEnabled="1" Recurse="1" ServeFiles="1" ServeFilesTimeout="3600" UnauthenticatedEnabled="0" Url="/csp/iris-flow/api" UseSessionCookie="2"/>
+      <CSPApplication CookiePath="/csp/iris-flow/" DefaultTimeout="900" DeployPath="${cspdir}/iris-flow/" Description="IRIS Flow" MatchRoles=":{$dbrole}" PasswordAuthEnabled="1" Recurse="1" ServeFiles="1" ServeFilesTimeout="3600" SourcePath="/src/csp" UnauthenticatedEnabled="0" Url="/csp/iris-flow" UseSessionCookie="2"/>
+      <UnitTest Name="/src" Package="UnitTest" Phase="test"/>
+      <Invokes>
+          <Invoke Class="dc.irisflow.util.Setup" Method="InitialComponents"></Invoke>
+      </Invokes>
     </Module>
   </Document>
 </Export>

@@ -20,7 +20,7 @@ docker-compose up -d
 
 ## open iris terminal in docker
 ```
-docker-compose exec iris iris session iris -U IRISAPP
+docker-compose exec iris iris session iris -U USER
 ```
 
 ## map iris key from Mac home directory to IRIS in container
@@ -62,7 +62,7 @@ d $System.OBJ.Export("GlobalD.GBL","/irisrun/repo/src/gbl/GlobalD.xml")
 zn "%SYS" \
   write "Create web application ...",! \
   set webName = "/csp/irisweb" \
-  set webProperties("NameSpace") = "IRISAPP" \
+  set webProperties("NameSpace") = "USER" \
   set webProperties("Enabled") = 1 \
   set webProperties("CSPZENEnabled") = 1 \
   set webProperties("AutheEnabled") = 32 \
@@ -81,9 +81,9 @@ do $SYSTEM.OBJ.ImportDir("/opt/irisbuild/src",, "ck")
 
 ### run tests described in the module
 
-IRISAPP>zpm
-IRISAPP:zpm>load /irisrun/repo
-IRISAPP:zpm>test package-name
+USER>zpm
+USER:zpm>load /irisrun/repo
+USER:zpm>test package-name
 
 ### install ZPM with one line
     // Install ZPM
