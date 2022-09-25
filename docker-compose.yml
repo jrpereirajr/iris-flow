@@ -11,4 +11,5 @@ services:
       - 55007:52773
       - 53773
     volumes:
-      - ./:/irisrun/repo
+#      - ./:/irisrun/repo
+      - ./:/home/irisowner/irisbuild
