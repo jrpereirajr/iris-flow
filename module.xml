@@ -6,6 +6,7 @@
       <Version>1.0.3</Version>
       <Description>A tool which lets you create IRIS Interoperability productions just by connecting building blocks</Description>
       <Packaging>module</Packaging>
+      <SystemRequirements Interoperability="enabled"/>
       <SourcesRoot>src</SourcesRoot>
       <Dependencies>
         <ModuleReference>
