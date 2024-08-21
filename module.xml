@@ -3,7 +3,7 @@
   <Document name="iris-flow.ZPM">
     <Module>
       <Name>iris-flow</Name>
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
       <Description>A tool which lets you create IRIS Interoperability productions just by connecting building blocks</Description>
       <Packaging>module</Packaging>
       <SystemRequirements Interoperability="enabled"/>
